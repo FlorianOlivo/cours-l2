@@ -1,4 +1,22 @@
 const anagrammes = (stringA, stringB) => {
+  //replace permet de garder juste les élément qui suive
+  stringA=stringA.toLowerCase().replace(/[^a-zA-Z]/g,'').split("");
+  stringB=stringB.toLowerCase().replace(/[^a-zA-Z]/g,'').split("");
+  
+  //Mettre dans l'ordre alphabétique
+  
+  let tabA = stringA.sort()
+  let tabB =stringB.sort()
+
+  let x = true;
+
+  tabA.forEach((el, indice) => {
+    if(tabA[indice] != tabB[indice]){
+      x = false;
+    }
+  })
+  return x;
+
   /**
    * stringA est égale à stringB si et seulement s'ils partagent les mêmes
    * caractères alphabétiques dans la même quantité.
@@ -10,11 +28,31 @@ const anagrammes = (stringA, stringB) => {
    * anagrams('RAIL! SAFETY!', 'fairy tales') === true
    * anagrams('Hi there', 'Bye there') === false
    */
-
 };
 
 
 class Stack {
+
+  constructor(){
+    this.tab = [];
+  }
+
+
+  push(val) {
+    this.tab[this.tab.length] = val;
+  }
+
+  pop(){
+    let a = this.tab[this.tab.length-1];
+    this.tab.splice(this.tab.length-1, 1);
+    return a;
+  }
+
+  peek(){
+    return this.tab[0];
+  }
+
+
 /**
  * Créer une structure d'empilement. La structure doit être
  * une classe contenant les méthodes :
@@ -36,6 +74,19 @@ class Stack {
 
 
 const fizzBuzz = (n) => {
+  for(i=1; i<n; i++){
+    if(i % 3 && i % 5){
+      return 'fizzBuzz'
+    }
+    if(i % 3){
+      return 'fizz';
+    }
+    if(i % 5 ){
+      return 'buzz';
+    }
+  }
+  
+
 /**
  * Affiche les nombres de 1 à n, en remplaçant les multiples de 3 par fizz et 
  * les multiples de 5 par buzz
