@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import Map from "./components/map/Map";
+//import logo from './logo.svg';
+import Button from "./components/button/Button";
 import './App.css';
 
 function App() {
