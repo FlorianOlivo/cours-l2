@@ -8,8 +8,8 @@ import step4 from './images/4.jpg';
 import step5 from './images/5.jpg';
 import step6 from './images/6.jpg';
 
-const API = 'https://api.github.com';
-const GIST = '';
+const API = 'https://api.github.com/gists';
+const GIST = '5b35f0c0c95fca9e60695328fdb2fb34';
 const TOKEN = '';
 
 class Hangman extends Component {
@@ -21,6 +21,13 @@ class Hangman extends Component {
   }
 
   componentDidMount() {
+    fetch('https://api.mydomain.com')
+      .then(result => result.json())
+      .then((output) => {
+          this.setState({
+              data: output.results[0]
+          })
+    })
   }
 
   async fetchResults() {
